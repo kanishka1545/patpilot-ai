@@ -11,7 +11,10 @@ export default function Goals() {
   });
 
   useEffect(() => {
-    localStorage.setItem("goals", JSON.stringify(goals));
+    localStorage.setItem(
+      "goals",
+      JSON.stringify(goals)
+    );
   }, [goals]);
 
   const addGoal = () => {
@@ -33,50 +36,69 @@ export default function Goals() {
     <MainLayout>
       <h1>🎯 Savings Goals</h1>
 
-      <input
-        value={goal}
-        onChange={(e) => setGoal(e.target.value)}
-        placeholder="Goal Name"
-      />
+      <div
+        style={{
+          background: "white",
+          padding: "20px",
+          borderRadius: "20px",
+        }}
+      >
+        <input
+          placeholder="Goal Name"
+          value={goal}
+          onChange={(e) =>
+            setGoal(e.target.value)
+          }
+        />
+
+        <br />
+        <br />
+
+        <input
+          placeholder="Target Amount"
+          value={amount}
+          onChange={(e) =>
+            setAmount(e.target.value)
+          }
+        />
+
+        <br />
+        <br />
+
+        <button onClick={addGoal}>
+          Add Goal
+        </button>
+      </div>
 
       <br />
-      <br />
-
-      <input
-        value={amount}
-        onChange={(e) => setAmount(e.target.value)}
-        placeholder="Target Amount"
-      />
-
-      <br />
-      <br />
-
-      <button onClick={addGoal}>
-        Add Goal
-      </button>
-
-      <hr />
 
       {goals.map((item, index) => (
-  <div key={index}>
-    <h3>{item.goal}</h3>
-    <p>₹{item.amount}</p>
+        <div
+          key={index}
+          style={{
+            background: "white",
+            padding: "15px",
+            borderRadius: "15px",
+            marginBottom: "10px",
+          }}
+        >
+          <h3>{item.goal}</h3>
 
-    <button
-      onClick={() => {
-        const updatedGoals = goals.filter(
-          (_, i) => i !== index
-        );
+          <p>₹{item.amount}</p>
 
-        setGoals(updatedGoals);
-      }}
-    >
-      Delete
-    </button>
-
-    <hr />
-  </div>
-))}
+          <button
+            onClick={() =>
+              setGoals(
+                goals.filter(
+                  (_, i) => i !== index
+                )
+              )
+            }
+          >
+            Delete
+          </button>
+        </div>
+      ))}
     </MainLayout>
   );
 }

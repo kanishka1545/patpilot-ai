@@ -15,7 +15,14 @@ export default function Dashboard() {
 
   return (
     <MainLayout>
-      <h1>📊 PayPilot Dashboard</h1>
+      <h1
+        style={{
+          color: "#1e293b",
+          fontSize: "35px",
+        }}
+      >
+        📊 PayPilot Dashboard
+      </h1>
 
       <div
         style={{
@@ -55,12 +62,13 @@ export default function Dashboard() {
 
       <div
         style={{
-          background: "#f1f5f9",
+          background: "white",
           padding: "20px",
-          borderRadius: "15px",
+          borderRadius: "20px",
+          boxShadow: "0px 5px 15px rgba(0,0,0,0.1)",
         }}
       >
-        <h2>Project Stats</h2>
+        <h2>📈 Project Stats</h2>
 
         <p>Total Payments: {payments.length}</p>
 
@@ -73,12 +81,13 @@ export default function Dashboard() {
 
       <div
         style={{
-          background: "#f8fafc",
+          background: "white",
           padding: "20px",
-          borderRadius: "15px",
+          borderRadius: "20px",
+          boxShadow: "0px 5px 15px rgba(0,0,0,0.1)",
         }}
       >
-        <h2>Recent Activity</h2>
+        <h2>🕒 Recent Activity</h2>
 
         {payments.length === 0 ? (
           <p>No Recent Payments</p>

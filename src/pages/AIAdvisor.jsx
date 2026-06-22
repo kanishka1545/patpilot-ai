@@ -2,27 +2,26 @@ import { useState } from "react";
 import MainLayout from "../layouts/MainLayout";
 
 export default function AIAdvisor() {
-  const [question, setQuestion] = useState("");
-  const [response, setResponse] = useState("");
+  const [question, setQuestion] =
+    useState("");
+
+  const [response, setResponse] =
+    useState("");
 
   const handleAskAI = () => {
     const q = question.toLowerCase();
 
     if (q.includes("phone")) {
       setResponse(
-        "Based on your balance, buying a phone seems affordable."
+        "Buying a phone is affordable based on your current balance."
       );
     } else if (q.includes("save")) {
       setResponse(
-        "You should save at least 20% of your monthly income."
-      );
-    } else if (q.includes("bike")) {
-      setResponse(
-        "Consider your monthly expenses before buying a bike."
+        "Try saving at least 20% of your income every month."
       );
     } else {
       setResponse(
-        "Your financial condition looks stable. Continue tracking expenses."
+        "Your finances look stable. Continue tracking expenses."
       );
     }
   };
@@ -31,25 +30,36 @@ export default function AIAdvisor() {
     <MainLayout>
       <h1>🤖 AI Financial Advisor</h1>
 
-      <textarea
-        rows="5"
-        cols="60"
-        value={question}
-        onChange={(e) => setQuestion(e.target.value)}
-        placeholder="Ask financial question..."
-      />
+      <div
+        style={{
+          background: "white",
+          padding: "20px",
+          borderRadius: "20px",
+        }}
+      >
+        <textarea
+          rows="5"
+          cols="60"
+          placeholder="Ask a financial question..."
+          value={question}
+          onChange={(e) =>
+            setQuestion(e.target.value)
+          }
+        />
 
-      <br /><br />
+        <br />
+        <br />
 
-      <button onClick={handleAskAI}>
-        Ask AI
-      </button>
+        <button onClick={handleAskAI}>
+          Ask AI
+        </button>
 
-      <hr />
+        <hr />
 
-      <h3>AI Response</h3>
+        <h3>AI Response</h3>
 
-      <p>{response}</p>
+        <p>{response}</p>
+      </div>
     </MainLayout>
   );
 }

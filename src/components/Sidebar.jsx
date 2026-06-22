@@ -23,11 +23,70 @@ export default function Sidebar() {
           marginTop: "20px",
         }}
       >
-        <Link to="/">Dashboard</Link>
-        <Link to="/payments">Payments</Link>
-        <Link to="/analytics">Analytics</Link>
-        <Link to="/advisor">AI Advisor</Link>
-        <Link to="/goals">Goals</Link>
+        <Link
+          to="/"
+          style={{
+            color: "white",
+            textDecoration: "none",
+            background: "#1e293b",
+            padding: "12px",
+            borderRadius: "10px",
+          }}
+        >
+          Dashboard
+        </Link>
+
+        <Link
+          to="/payments"
+          style={{
+            color: "white",
+            textDecoration: "none",
+            background: "#1e293b",
+            padding: "12px",
+            borderRadius: "10px",
+          }}
+        >
+          Payments
+        </Link>
+
+        <Link
+          to="/analytics"
+          style={{
+            color: "white",
+            textDecoration: "none",
+            background: "#1e293b",
+            padding: "12px",
+            borderRadius: "10px",
+          }}
+        >
+          Analytics
+        </Link>
+
+        <Link
+          to="/advisor"
+          style={{
+            color: "white",
+            textDecoration: "none",
+            background: "#1e293b",
+            padding: "12px",
+            borderRadius: "10px",
+          }}
+        >
+          AI Advisor
+        </Link>
+
+        <Link
+          to="/goals"
+          style={{
+            color: "white",
+            textDecoration: "none",
+            background: "#1e293b",
+            padding: "12px",
+            borderRadius: "10px",
+          }}
+        >
+          Goals
+        </Link>
       </div>
     </div>
   );

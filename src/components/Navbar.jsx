@@ -2,13 +2,14 @@ export default function Navbar() {
   return (
     <div
       style={{
-        background: "#1e293b",
+        background: "#0f172a",
         color: "white",
         padding: "20px",
-        borderBottom: "2px solid #334155",
+        borderRadius: "15px",
+        marginBottom: "20px",
       }}
     >
-      <h2>🚀 Agentic Payment Assistant</h2>
+      <h2>🚀 PayPilot AI</h2>
     </div>
   );
 }

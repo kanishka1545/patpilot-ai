@@ -33,49 +33,61 @@ export default function Payments() {
   };
 
   const deletePayment = (index) => {
-    const updated = payments.filter(
-      (_, i) => i !== index
+    setPayments(
+      payments.filter((_, i) => i !== index)
     );
-
-    setPayments(updated);
   };
 
   return (
     <MainLayout>
       <h1>💳 Payments Center</h1>
 
-      <input
-        type="text"
-        placeholder="Recipient Name"
-        value={name}
-        onChange={(e) => setName(e.target.value)}
-      />
+      <div
+        style={{
+          background: "white",
+          padding: "20px",
+          borderRadius: "20px",
+        }}
+      >
+        <input
+          placeholder="Recipient Name"
+          value={name}
+          onChange={(e) =>
+            setName(e.target.value)
+          }
+        />
+
+        <br />
+        <br />
+
+        <input
+          placeholder="Amount"
+          value={amount}
+          onChange={(e) =>
+            setAmount(e.target.value)
+          }
+        />
+
+        <br />
+        <br />
+
+        <button onClick={addPayment}>
+          Send Payment
+        </button>
+      </div>
 
       <br />
-      <br />
 
-      <input
-        type="number"
-        placeholder="Amount"
-        value={amount}
-        onChange={(e) => setAmount(e.target.value)}
-      />
+      <div
+        style={{
+          background: "white",
+          padding: "20px",
+          borderRadius: "20px",
+        }}
+      >
+        <h2>Payment History</h2>
 
-      <br />
-      <br />
-
-      <button onClick={addPayment}>
-        Send Payment
-      </button>
-
-      <hr />
-
-      <h2>Payment History</h2>
-
-      {payments.length === 0 ? (
-        <p>No Payments Yet</p>
-      ) : (
-        payments.map((item, index) => (
+        {payments.map((item, index) => (
           <div key={index}>
             <p>
               👤 {item.name} - ₹{item.amount}
@@ -91,8 +103,8 @@ export default function Payments() {
 
             <hr />
           </div>
-        ))
-      )}
+        ))}
+      </div>
     </MainLayout>
   );
 }
